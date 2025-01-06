@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WebApplication10.Models.Order>
+@{
+    Layout = "_AdminLayout";
+}
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Employee</th>
+            <th>Delivery Date</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.Id</td>
+                <td>@order.Customer.Name</td>
+                <td>@order.Employee.Name</td>
+                <td>@order.DeliveryDate.ToShortDateString()</td>
+                <td>@order.Quantity</td>
+                <td>
+                    <a class="btn btn-warning" href="@Url.Action("Edit", "Order", new { id = order.Id })">Edit</a>
+                    <a class="btn btn-danger" href="@Url.Action("Delete", "Order", new { id = order.Id })" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a class="btn btn-primary" href="@Url.Action("Add", "Order")">Add New Order</a>

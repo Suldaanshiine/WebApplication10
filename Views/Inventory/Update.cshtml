@@ -1,0 +1,18 @@
+﻿@model WebApplication10.Models.UpdateInventoryViewModel
+@{
+    Layout = "_AdminLayout";
+}
+<h2>Update Inventory</h2>
+
+<form asp-action="Update" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label for="ItemName">Item Name</label>
+        <input asp-for="ItemName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="QuantityAvailable">Quantity Available</label>
+        <input asp-for="QuantityAvailable" class="form-control" type="number" />
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

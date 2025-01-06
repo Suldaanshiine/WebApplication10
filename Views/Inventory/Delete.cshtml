@@ -1,0 +1,17 @@
+﻿@model WebApplication10.Models.Inventory
+@{
+    Layout = "_AdminLayout";
+}
+<h2>Delete Inventory Item</h2>
+<p>Are you sure you want to delete this inventory item?</p>
+<div>
+    <strong>Item Name:</strong> @Model.ItemName
+</div>
+<div>
+    <strong>Quantity Available:</strong> @Model.QuantityAvailable
+</div>
+
+<form asp-action="Delete" method="post">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

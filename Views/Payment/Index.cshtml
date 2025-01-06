@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WebApplication10.Models.Payment>
+
+@{
+    Layout = "_AdminLayout";
+}
+<h2>Payments</h2>
+<a asp-action="Create" class="btn btn-primary">Add Payment</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Amount Paid</th>
+            <th>Payment Method</th>
+            <th>Payment Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var payment in Model)
+        {
+            <tr>
+                <td>@payment.OrderId</td>
+                <td>@payment.AmountPaid</td>
+                <td>@payment.PaymentMethod</td>
+                <td>@payment.PaymentDate.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@payment.Id" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@payment.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

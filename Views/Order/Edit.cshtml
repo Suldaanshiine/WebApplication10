@@ -1,0 +1,28 @@
+﻿@model WebApplication10.Models.UpdateOrderViewModel
+@{
+    Layout = "_AdminLayout";
+}
+@{
+    ViewData["Title"] = "Edit Order";
+}
+
+<form method="post">
+    <div class="mb-3">
+        <label for="CustomerId" class="form-label">Customer</label>
+        <input type="number" class="form-control" id="CustomerId" name="CustomerId" value="@Model.CustomerId" required />
+    </div>
+    <div class="mb-3">
+        <label for="EmployeeId" class="form-label">Employee</label>
+        <input type="number" class="form-control" id="EmployeeId" name="EmployeeId" value="@Model.EmployeeId" required />
+    </div>
+    <div class="mb-3">
+        <label for="DeliveryDate" class="form-label">Delivery Date</label>
+        <input type="date" class="form-control" id="DeliveryDate" name="DeliveryDate" value="@Model.DeliveryDate.ToString("yyyy-MM-dd")" required />
+    </div>
+    <div class="mb-3">
+        <label for="Quantity" class="form-label">Quantity</label>
+        <input type="number" class="form-control" id="Quantity" name="Quantity" value="@Model.Quantity" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Order</button>
+</form>

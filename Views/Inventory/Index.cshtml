@@ -1,0 +1,29 @@
+﻿@model IEnumerable<WebApplication10.Models.Inventory>
+@{
+    Layout = "_AdminLayout";
+}
+<h2>Inventory List</h2>
+<a asp-action="Add" class="btn btn-primary">Add Inventory</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Item Name</th>
+            <th>Quantity Available</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var inventoryItem in Model)
+        {
+            <tr>
+                <td>@inventoryItem.ItemName</td>
+                <td>@inventoryItem.QuantityAvailable</td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@inventoryItem.Id" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@inventoryItem.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

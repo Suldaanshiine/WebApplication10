@@ -1,0 +1,28 @@
+﻿@model WebApplication10.Models.AddOrderViewModel
+@{
+    Layout = "_AdminLayout";
+}
+@{
+    ViewData["Title"] = "Add Order";
+}
+
+<form method="post">
+    <div class="mb-3">
+        <label for="CustomerId" class="form-label">Customer</label>
+        <input type="number" class="form-control" id="CustomerId" name="CustomerId" required />
+    </div>
+    <div class="mb-3">
+        <label for="EmployeeId" class="form-label">Employee</label>
+        <input type="number" class="form-control" id="EmployeeId" name="EmployeeId" required />
+    </div>
+    <div class="mb-3">
+        <label for="DeliveryDate" class="form-label">Delivery Date</label>
+        <input type="date" class="form-control" id="DeliveryDate" name="DeliveryDate" required />
+    </div>
+    <div class="mb-3">
+        <label for="Quantity" class="form-label">Quantity</label>
+        <input type="number" class="form-control" id="Quantity" name="Quantity" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Order</button>
+</form>
